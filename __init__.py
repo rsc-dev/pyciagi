@@ -26,7 +26,6 @@ ZACHODNIOPOMORSKIE  = 32
 
 HOST = 'http://rozklad.plk-sa.pl'
 
-
 USER_AGENT = 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.81 Safari/537.36'
 
 
@@ -74,9 +73,7 @@ def _datetime_to_asp_date(dt):
 ##
 # Entry point
 if __name__ == '__main__':
-    trains = difficulties_by_voivodeship(SLASKIE)
-    
-    print trains
+    pass
     
     
     #diff = difficulties_by_voivodeship(SLASKIE)
