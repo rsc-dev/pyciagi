@@ -12,7 +12,7 @@ from datetime import datetime
 import json
 import requests
 import time
-import urllib2
+
 
 # Voivodeships codes
 DOLNOSLASKIE        = 2
@@ -45,7 +45,7 @@ def difficulties_by_voivodeship(voivodeship, dt=datetime.now()):
     :param voivodeship: Voivodeship numeric value.
     :param dt: Datetime for data. Default: datetime.now()
 
-    :return: Difficulties by voivodeship in JSON format.
+    :return: List of difficulties by voivodeship.
     """
     session = requests.Session()
     session.headers.update({'User-Agent': USER_AGENT})
@@ -56,9 +56,8 @@ def difficulties_by_voivodeship(voivodeship, dt=datetime.now()):
     url = '{}/Mapa/PodajUtrudnieniaWWojewodztwie?KodWojewodztwa={}&_={}'.format(HOST, str(voivodeship), _datetime_to_asp_date(dt))
     response = session.get(url)
     
-    json_data = response.json() if len(response.text) > 0 else '{}'
-    
-    return json.load(json_data)
+    json_data = response.json() if len(response.text) > 0 else []
+    return json_data
 # end-of-function difficulties_by_voivodeship    
 
 
@@ -69,10 +68,19 @@ def trains_by_voivodeship(voivodeship, dt=datetime.now()):
     :param voivodeship: Voivodeship numeric value.
     :param dt: Datetime for data. Default: datetime.now()
     
-    :return: Trains by voivodeship in JSON format.
+    :return: List of trains by voivodeship.
     """
+    session = requests.Session()
+    session.headers.update({'User-Agent': USER_AGENT})
+    session.headers.update({'X-Requested-With': 'XMLHttpRequest'})
+    
+    session.get('{}/Mapa/'.format(HOST))
+    
     url = '{}/Mapa/PodajJadacePociagiWWojewodztwie?KodWojewodztwa={}&_={}'.format(HOST, str(voivodeship), _datetime_to_asp_date(dt))
-    return json.load(urllib2.urlopen(url))
+    response = session.get(url)
+    
+    json_data = response.json() if len(response.text) > 0 else []
+    return json_data
 # end-of-function trains_by_voivodeship     
 
 
