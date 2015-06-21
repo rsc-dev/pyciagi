@@ -6,8 +6,8 @@ setup(
   description = 'Non-official API for real-time trains position across Poland.',
   author = 'rsc',
   author_email = 'radoslawmatusiak@gmail.com',
-  url = 'https://github.com/rsc-dev/pyciagi', # use the URL to the github repo
-  download_url = 'https://github.com/peterldowns/mypackage/tarball/0.1', # I'll explain this in a second
+  url = 'https://github.com/rsc-dev/pyciagi',
+  download_url = 'https://github.com/rsc-dev/pyciagi/releases/tag/1.0.0',
   keywords = ['pociagi', 'trains', 'Poland', 'Polska'],
   classifiers = [],
 )
