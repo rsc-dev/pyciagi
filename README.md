@@ -1,2 +1,2 @@
 # pyciagi
-Non-official API for real-time trains possition accross Poland.
+Non-official API for real-time trains position across Poland.

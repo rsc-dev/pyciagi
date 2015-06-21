@@ -1,3 +1,12 @@
+
+__author__ = 'roscoe'
+__license__ = "MIT"
+__version__ = "1.0.0"
+
+""""
+Non-official API for real-time trains position across Poland.
+"""
+
 from collections import namedtuple
 from datetime import datetime
 import json
@@ -74,8 +83,4 @@ def _datetime_to_asp_date(dt):
 # Entry point
 if __name__ == '__main__':
     pass
-    
-    
-    #diff = difficulties_by_voivodeship(SLASKIE)
-    #print len(diff)
     
