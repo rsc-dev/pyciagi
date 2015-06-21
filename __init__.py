@@ -12,7 +12,7 @@ from datetime import datetime
 import json
 import requests
 import time
-
+import urllib2
 
 # Voivodeships codes
 DOLNOSLASKIE        = 2
