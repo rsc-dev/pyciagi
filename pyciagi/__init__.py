@@ -7,9 +7,7 @@ __version__ = "1.0.0"
 Non-official API for real-time trains position across Poland.
 """
 
-from collections import namedtuple
 from datetime import datetime
-import json
 import requests
 import time
 
