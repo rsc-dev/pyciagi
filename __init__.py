@@ -40,9 +40,11 @@ USER_AGENT = 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML
 
 def difficulties_by_voivodeship(voivodeship, dt=datetime.now()):
     """
-
+    Get difficulties in voivodeship.
 
     :param voivodeship: Voivodeship numeric value.
+    :param dt: Datetime for data. Default: datetime.now()
+
     :return: Difficulties by voivodeship in JSON format.
     """
     session = requests.Session()
@@ -56,15 +58,17 @@ def difficulties_by_voivodeship(voivodeship, dt=datetime.now()):
     
     json_data = response.json() if len(response.text) > 0 else '{}'
     
-    #return json.load(urllib2.urlopen(url))
     return json.load(json_data)
 # end-of-function difficulties_by_voivodeship    
 
 
 def trains_by_voivodeship(voivodeship, dt=datetime.now()):
     """
-
+    Get trains in voivodeship.
+    
     :param voivodeship: Voivodeship numeric value.
+    :param dt: Datetime for data. Default: datetime.now()
+    
     :return: Trains by voivodeship in JSON format.
     """
     url = '{}/Mapa/PodajJadacePociagiWWojewodztwie?KodWojewodztwa={}&_={}'.format(HOST, str(voivodeship), _datetime_to_asp_date(dt))
@@ -74,7 +78,7 @@ def trains_by_voivodeship(voivodeship, dt=datetime.now()):
 
 def _datetime_to_asp_date(dt):
     date = int(time.mktime(dt.timetuple()))
-    date = date * 1000 + 137  # 
+    date = date * 1000 + 137  # -.-
     return date
 # end-of-function _datetime_to_asp_date 
     
